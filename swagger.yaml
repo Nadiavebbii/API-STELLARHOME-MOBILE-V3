@@ -4,7 +4,7 @@ info:
   title: Stellar Home Mobile
   contact: {}
 host: stellarhome.id
-basePath: /api/v1/mobile/v3
+basePath: /api/v3/mobile
 securityDefinitions: {}
 schemes:
   - http
