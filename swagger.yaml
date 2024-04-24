@@ -155,8 +155,62 @@ paths:
           description: required|boolean
       responses:
         '200':
-          description: ''
-          headers: {}
+          description: OK
+          schema:
+            $ref: '#/definitions/Idprospekinvalid'
+          examples:
+            application/json:
+              success: false
+              error:
+                id_prospek:
+                  - The selected id prospek is invalid.
+              message: The selected id prospek is invalid.
+          headers:
+            Date:
+              type: string
+              default: Thu, 18 Apr 2024 04:21:21 GMT
+            Transfer-Encoding:
+              type: string
+              default: chunked
+            Connection:
+              type: string
+              default: keep-alive
+            Cache-Control:
+              type: string
+              default: no-cache, private
+            X-RateLimit-Limit:
+              type: string
+              default: '60'
+            X-RateLimit-Remaining:
+              type: string
+              default: '59'
+            Access-Control-Allow-Origin:
+              type: string
+              default: '*'
+            Vary:
+              type: string
+              default: Authorization
+            CF-Cache-Status:
+              type: string
+              default: DYNAMIC
+            Report-To:
+              type: string
+              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=qqqR%2BbJNCAr%2FNjqH4PnUPiuNSJFSD6Ru1ePzWYltuAgWrG9mog%2FLSdopSrtFLYj5fbnpwxIFi5Z0OvSIj1flBUWb19Oq2uG6Lb8dWIdOmfuXlWNJZqD5kTF5XvNIZAxZRQ%3D%3D"}],"group":"cf-nel","max_age":604800}'
+            NEL:
+              type: string
+              default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+            Server:
+              type: string
+              default: cloudflare
+            CF-RAY:
+              type: string
+              default: 8761de16bd675dce-HKG
+            Content-Encoding:
+              type: string
+              default: br
+            alt-svc:
+              type: string
+              default: h3=":443"; ma=86400
   /klien/tambah:
     post:
       summary: Tambah Klien Baru
@@ -317,16 +371,16 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/VerifikasiKlienOTP'
+            $ref: '#/definitions/Kodeverifikasiberhasilditerima'
           examples:
             application/json:
-              success: false
-              error: InvalidOTPException
-              message: No query results for model [Modules\Transaksi\Entities\Klien].
+              success: true
+              error: null
+              message: Kode verifikasi berhasil diterima.
           headers:
             Date:
               type: string
-              default: Wed, 03 Apr 2024 03:30:44 GMT
+              default: Thu, 18 Apr 2024 04:29:59 GMT
             Transfer-Encoding:
               type: string
               default: chunked
@@ -353,7 +407,7 @@ paths:
               default: DYNAMIC
             Report-To:
               type: string
-              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=LaXudPoDir5fQnv9h2AQ8nis1l4%2BuPbdixaLi%2BRTAzngzaIJsBbEv3Bcst%2FlVkr9nNmy%2FbZkxIwJviy%2BnLz%2BUO91S0DkG6ZKRbDVoGQPWL3eRkuBeUy2HWMT89IcCdg1YQ%3D%3D"}],"group":"cf-nel","max_age":604800}'
+              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=sfBryhgE8ro7NUzd6y4EJBHEa1o3442lPct1clnWa2%2FyO1G3Rme%2FwQfFYRmF%2FklQMyO%2BCPbkOweVEMyf9ojWR7j7evdDkqm6%2BwKXgm7%2BTbmz8V3YOL%2B8guMjDQ78S4k%2BXw%3D%3D"}],"group":"cf-nel","max_age":604800}'
             NEL:
               type: string
               default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
@@ -362,7 +416,7 @@ paths:
               default: cloudflare
             CF-RAY:
               type: string
-              default: 86e5fb532a7d1fbe-HKG
+              default: 8761eaba3a685dce-HKG
             Content-Encoding:
               type: string
               default: br
@@ -400,17 +454,17 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/KodeVerifikasiberhasilDikirim'
+            $ref: '#/definitions/Kodeverifikasiberhasildikirim'
           examples:
             application/json:
               success: true
               error: null
               message: Kode verifikasi berhasil dikirim.
-              data: 3460
+              data: 1727
           headers:
             Date:
               type: string
-              default: Wed, 03 Apr 2024 03:47:55 GMT
+              default: Thu, 18 Apr 2024 04:28:15 GMT
             Transfer-Encoding:
               type: string
               default: chunked
@@ -425,7 +479,7 @@ paths:
               default: '60'
             X-RateLimit-Remaining:
               type: string
-              default: '58'
+              default: '59'
             Access-Control-Allow-Origin:
               type: string
               default: '*'
@@ -437,7 +491,7 @@ paths:
               default: DYNAMIC
             Report-To:
               type: string
-              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=cEJlKeCd3m3eNJm9HjCaUZ8dRDpodTHk2Mg8FdT3qkJlaxLaVttXfFoG%2FjI2SV10%2Bt3vpHOlg%2B1jj06c2olv5VqHFGuLWaPquVeUrvuUDwAKKYL644wZBfp0OvaamXY42g%3D%3D"}],"group":"cf-nel","max_age":604800}'
+              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=c2shOttGSznpLJS0091l3EwYbtbwIH1EZQjtOAaWSZYTuPgYZaSDYNvvSYxFWxVraME%2FFYVWosNIozmmQVyV8%2BvD0dU5mGXVd%2FOnyxng2e2G%2BeMNxKd7nY4Zqi8AZpkfKQ%3D%3D"}],"group":"cf-nel","max_age":604800}'
             NEL:
               type: string
               default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
@@ -446,7 +500,7 @@ paths:
               default: cloudflare
             CF-RAY:
               type: string
-              default: 86e6147a0e5f044f-HKG
+              default: 8761e82f1b505dce-HKG
             Content-Encoding:
               type: string
               default: br
@@ -478,7 +532,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/DataRetrieved'
+            $ref: '#/definitions/Dataretrieved'
           examples:
             application/json:
               success: true
@@ -487,34 +541,90 @@ paths:
               data:
                 current_page: 1
                 data:
-                  - slug: client-adi-2
+                  - slug: client-adi-8
                     nama_klien: Client Adi
-                    sales_id: '34'
+                    sales_id: '51'
                     sales_type: Sales Agent
-                    telepone: +
+                    telepone: '+628788551152'
                     email: adi200@gmail.com
                     catatan: null
                     nama_bank: BCA
                     nomor_rekening: '3221102928'
-                    created_at: '2024-04-03T03:26:12.000000Z'
-                    updated_at: '2024-04-03T03:26:12.000000Z'
-                    id: 45
+                    created_at: '2024-04-18T04:24:37.000000Z'
+                    updated_at: '2024-04-18T04:24:37.000000Z'
+                    id: 51
                     is_verified: 0
-                    kode_otp: '3737'
-                  - slug: client-adi
+                    kode_otp: '6234'
+                  - slug: client-adi-7
                     nama_klien: Client Adi
-                    sales_id: '34'
+                    sales_id: '51'
+                    sales_type: Sales Agent
+                    telepone: '+628788551152'
+                    email: adi20@gmail.com
+                    catatan: null
+                    nama_bank: BCA
+                    nomor_rekening: '3221102928'
+                    created_at: '2024-04-18T04:24:24.000000Z'
+                    updated_at: '2024-04-18T04:24:24.000000Z'
+                    id: 50
+                    is_verified: 0
+                    kode_otp: '6388'
+                  - slug: client-adi-6
+                    nama_klien: Client Adi
+                    sales_id: '51'
+                    sales_type: Sales Agent
+                    telepone: '+628788551152'
+                    email: adi200@gmail.com
+                    catatan: null
+                    nama_bank: BCA
+                    nomor_rekening: '3221102928'
+                    created_at: '2024-04-18T04:24:15.000000Z'
+                    updated_at: '2024-04-18T04:24:15.000000Z'
+                    id: 49
+                    is_verified: 0
+                    kode_otp: '4058'
+                  - slug: client-adi-5
+                    nama_klien: Client Adi
+                    sales_id: '51'
+                    sales_type: Sales Agent
+                    telepone: '+6287885511'
+                    email: adi200@gmail.com
+                    catatan: null
+                    nama_bank: BCA
+                    nomor_rekening: '3221102928'
+                    created_at: '2024-04-18T04:24:05.000000Z'
+                    updated_at: '2024-04-18T04:24:05.000000Z'
+                    id: 48
+                    is_verified: 0
+                    kode_otp: '5194'
+                  - slug: client-adi-4
+                    nama_klien: Client Adi
+                    sales_id: '51'
+                    sales_type: Sales Agent
+                    telepone: '+628788551152'
+                    email: adi200@gmail.com
+                    catatan: null
+                    nama_bank: BCA
+                    nomor_rekening: '3221102928'
+                    created_at: '2024-04-18T04:23:55.000000Z'
+                    updated_at: '2024-04-18T04:23:55.000000Z'
+                    id: 47
+                    is_verified: 0
+                    kode_otp: '6235'
+                  - slug: client-adi-3
+                    nama_klien: Client Adi
+                    sales_id: '51'
                     sales_type: Sales Agent
                     telepone: '+62878855115252'
                     email: adi200@gmail.com
                     catatan: null
                     nama_bank: BCA
                     nomor_rekening: '3221102928'
-                    created_at: '2024-04-03T03:25:06.000000Z'
-                    updated_at: '2024-04-03T03:47:55.000000Z'
-                    id: 44
+                    created_at: '2024-04-18T03:20:47.000000Z'
+                    updated_at: '2024-04-18T03:20:47.000000Z'
+                    id: 46
                     is_verified: 0
-                    kode_otp: '3460'
+                    kode_otp: '3327'
                 first_page_url: https://stellarhome.id/api/v1/mobile/klien?page=1
                 from: 1
                 last_page: 1
@@ -533,12 +643,12 @@ paths:
                 path: https://stellarhome.id/api/v1/mobile/klien
                 per_page: 15
                 prev_page_url: null
-                to: 2
-                total: 2
+                to: 6
+                total: 6
           headers:
             Date:
               type: string
-              default: Wed, 03 Apr 2024 03:50:03 GMT
+              default: Thu, 18 Apr 2024 04:32:10 GMT
             Transfer-Encoding:
               type: string
               default: chunked
@@ -565,7 +675,7 @@ paths:
               default: DYNAMIC
             Report-To:
               type: string
-              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=ZiZ21Mnvt9NPU9O8mn5yqJIzTW8dgnmn3dRXLKZ2swyjJAPRgX90PtIF%2B5%2FSR2yGjP01X7Ds7i9go0hDSUiQbD5yJBkPM9P12tjEsz%2Fjsxox6bFdCdGMoOolRC%2FvU9y2XA%3D%3D"}],"group":"cf-nel","max_age":604800}'
+              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=FZESDaAzdtNFuAk2aInK4c%2FmuEvfMCOdwB0n5jx2p7tn2Ig7VLW%2BRloG38aLpY4DfL0xvzPEIr8dbTLS3C3uwjvLpL6myVfPsuS8TxLjK5yVVMRhKgSjTzldGr%2FE9jUIqg%3D%3D"}],"group":"cf-nel","max_age":604800}'
             NEL:
               type: string
               default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
@@ -574,7 +684,7 @@ paths:
               default: cloudflare
             CF-RAY:
               type: string
-              default: 86e617995fdd044f-HKG
+              default: 8761edf09ccc5dce-HKG
             Content-Encoding:
               type: string
               default: br
@@ -2317,16 +2427,209 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/SecondaryUnitDetail'
+            $ref: '#/definitions/DataRetrieved5'
           examples:
             application/json:
-              success: false
-              error: Get data failed.
-              message: No data exist
+              success: true
+              error: null
+              message: Data retrieved.
+              data:
+                id: 327
+                slug: dijual-rumah-secondary-nusa-loka-bsd-city
+                harga_unit: 870000000
+                harga_sewa_per_bulan: 0
+                harga_sewa_per_tahun: 0
+                luas_tanah_db: 72
+                luas_bangunan_db: 50
+                arah_bangunan: Tidak Diketahui
+                jumlah_kamar_tidur: 2
+                jumlah_kamar_mandi: 1
+                jumlah_lantai: 1
+                jumlah_garasi_mobil: 1
+                listrik: 2200
+                komisi: 3
+                komisi_sewa: null
+                is_available: 1
+                date_available: null
+                lebar_jalan_depan: 2
+                lingkungan_sekitar: null
+                created_at: '2024-03-22T08:59:50.000000Z'
+                updated_at: '2024-03-22T09:06:52.000000Z'
+                id_tipe_bangunan: 5
+                id_kantor_agent: 3
+                id_sales: 59
+                nomor_handphone_sales: '+6289659902718'
+                status_unit: Jual
+                nama_unit: Dijual Rumah Secondary - Nusa Loka BSD City
+                alamat: Nusa Loka, BSD
+                kota: KOTA TANGERANG SELATAN
+                kecamatan: SERPONG
+                kondisi_bangunan: Renovasi
+                sertifikat:
+                  - SHM - Hak Milik
+                atas_nama: Lim Lie Kian
+                kelengkapan_surat: null
+                line_telepon: 0
+                air:
+                  - PAM
+                jumlah_garasi: null
+                furniture_termasuk: Semi-Furnished
+                deskripsi_unit: '<p><strong>SECONDARY - FOR SALE</strong></p><p><strong>NUSA LOKA BSD</strong></p><p>———————————</p><p>KONDISI RUMAH:</p><p>Rumah / Townhouse</p><p>Jenis Bangunan: Secondary</p><p>Semi-Furnished</p><p>———————————</p><p>KT : 2 | KM : 1</p><p>1 Lantai</p><p>Garasi : 1 Mobil</p><p><br></p><p>Ruang Tamu Luas</p><p>Ruang Laundry</p><p><br></p><p>Dinding Full Keramik</p><p>Meja Beton Dapur</p><p>Atap Baja Ringan</p><p>Keramik 40 x 40 cm</p><p>Kusen + Pintu Alumunium</p><p>Kanopi Alderon</p><p><br></p><p>Free :</p><p>2 AC</p><p>Kitchen Set Baru</p><p>Water Heater + Shower</p><p>Closet Duduk</p><p><br></p><p>SERTIFIKAT:&nbsp;</p><p>• SHM</p><p>———————————</p><p>Price : 870 Juta ( Nego Tipis )</p>'
+                jenis_pembayaran:
+                  - Hardcash
+                nama_penjual: Lim Lie Kian
+                no_telepon_penjual: '+62089659902718'
+                nama_pemilik: Lim Lie Kian
+                alamat_lengkap_pemilik: BSD Sektor XIV-6 Blok QB/01 RT/RW 010/008 Kel. Rawa Mekar Jaya, Kec. Serpong, Kota Tangerang Selatan
+                no_telepon_pemilik: '+62089659902718'
+                no_npwp_pemilik: 82.573.240.7-411.000
+                bersedia_dipasang:
+                  - Tidak
+                jangka_waktu_pemasangan: null
+                open_house: Tidak
+                thumbnail_unit: dijual-rumah-secondary-nusa-loka-bsd-city-65fd4886294bf.webp
+                gallery_unit:
+                  - Dijual Rumah Secondary - Nusa Loka BSD City-65fd4886aa3a1.webp
+                  - Dijual Rumah Secondary - Nusa Loka BSD City-65fd488746048.webp
+                  - Dijual Rumah Secondary - Nusa Loka BSD City-65fd4887a8014.webp
+                  - Dijual Rumah Secondary - Nusa Loka BSD City-65fd488811e3b.webp
+                  - Dijual Rumah Secondary - Nusa Loka BSD City-65fd4888683ea.webp
+                  - Dijual Rumah Secondary - Nusa Loka BSD City-65fd4888be35a.webp
+                  - Dijual Rumah Secondary - Nusa Loka BSD City-65fd48892ae97.webp
+                dokumen_fpl: dijual-rumah-secondary-nusa-loka-bsd-city-65fd4886a89e4.jpeg
+                longitude: '106.69828536495537'
+                latitude: '-6.308236684706541'
+                approved_status: Approved
+                approved_date: '2024-03-22 16:06:52'
+                start_date_iklan: null
+                end_date_iklan: null
+                provinsi: BANTEN
+                status_bangunan: Seken
+                closing_fee: 0
+                reward: null
+                publish: 1
+                created_by: Rizky Utami
+                url_gallery_unit:
+                  - https://stellarhome.id/media/secondary_unit/gallery_unit/Dijual Rumah Secondary - Nusa Loka BSD City-65fd4886aa3a1.webp
+                  - https://stellarhome.id/media/secondary_unit/gallery_unit/Dijual Rumah Secondary - Nusa Loka BSD City-65fd488746048.webp
+                  - https://stellarhome.id/media/secondary_unit/gallery_unit/Dijual Rumah Secondary - Nusa Loka BSD City-65fd4887a8014.webp
+                  - https://stellarhome.id/media/secondary_unit/gallery_unit/Dijual Rumah Secondary - Nusa Loka BSD City-65fd488811e3b.webp
+                  - https://stellarhome.id/media/secondary_unit/gallery_unit/Dijual Rumah Secondary - Nusa Loka BSD City-65fd4888683ea.webp
+                  - https://stellarhome.id/media/secondary_unit/gallery_unit/Dijual Rumah Secondary - Nusa Loka BSD City-65fd4888be35a.webp
+                  - https://stellarhome.id/media/secondary_unit/gallery_unit/Dijual Rumah Secondary - Nusa Loka BSD City-65fd48892ae97.webp
+                unit_gallery:
+                  - tipe_banner: Foto
+                    file_banner: Dijual Rumah Secondary - Nusa Loka BSD City-65fd4886aa3a1.webp
+                    link_youtube: null
+                    url_file_banner: https://stellarhome.id/media/secondary_unit/gallery_unit/Dijual Rumah Secondary - Nusa Loka BSD City-65fd4886aa3a1.webp
+                    youtube_id: null
+                  - tipe_banner: Foto
+                    file_banner: Dijual Rumah Secondary - Nusa Loka BSD City-65fd488746048.webp
+                    link_youtube: null
+                    url_file_banner: https://stellarhome.id/media/secondary_unit/gallery_unit/Dijual Rumah Secondary - Nusa Loka BSD City-65fd488746048.webp
+                    youtube_id: null
+                  - tipe_banner: Foto
+                    file_banner: Dijual Rumah Secondary - Nusa Loka BSD City-65fd4887a8014.webp
+                    link_youtube: null
+                    url_file_banner: https://stellarhome.id/media/secondary_unit/gallery_unit/Dijual Rumah Secondary - Nusa Loka BSD City-65fd4887a8014.webp
+                    youtube_id: null
+                  - tipe_banner: Foto
+                    file_banner: Dijual Rumah Secondary - Nusa Loka BSD City-65fd488811e3b.webp
+                    link_youtube: null
+                    url_file_banner: https://stellarhome.id/media/secondary_unit/gallery_unit/Dijual Rumah Secondary - Nusa Loka BSD City-65fd488811e3b.webp
+                    youtube_id: null
+                  - tipe_banner: Foto
+                    file_banner: Dijual Rumah Secondary - Nusa Loka BSD City-65fd4888683ea.webp
+                    link_youtube: null
+                    url_file_banner: https://stellarhome.id/media/secondary_unit/gallery_unit/Dijual Rumah Secondary - Nusa Loka BSD City-65fd4888683ea.webp
+                    youtube_id: null
+                  - tipe_banner: Foto
+                    file_banner: Dijual Rumah Secondary - Nusa Loka BSD City-65fd4888be35a.webp
+                    link_youtube: null
+                    url_file_banner: https://stellarhome.id/media/secondary_unit/gallery_unit/Dijual Rumah Secondary - Nusa Loka BSD City-65fd4888be35a.webp
+                    youtube_id: null
+                  - tipe_banner: Foto
+                    file_banner: Dijual Rumah Secondary - Nusa Loka BSD City-65fd48892ae97.webp
+                    link_youtube: null
+                    url_file_banner: https://stellarhome.id/media/secondary_unit/gallery_unit/Dijual Rumah Secondary - Nusa Loka BSD City-65fd48892ae97.webp
+                    youtube_id: null
+                url_thumbnail_unit: https://stellarhome.id/media/secondary_unit/thumbnail_unit/dijual-rumah-secondary-nusa-loka-bsd-city-65fd4886294bf.webp
+                status_listing: Belum Terdaftar
+                approved_co_broker: []
+                status_user: Co-Broker
+                nama_sales: Lim Lie Kian
+                luas_tanah: 72
+                luas_bangunan: 50
+                tipe_bangunan:
+                  id: 5
+                  slug: rumah-tapak
+                  nama_tipe_bangunan: Rumah
+                  deskripsi: Rumah Tapak
+                  created_at: '2023-08-09T03:43:43.000000Z'
+                  updated_at: '2023-12-07T09:32:52.000000Z'
+                sales:
+                  id: 59
+                  id_user: 79
+                  slug: null
+                  no_telepon_agent_referensi: null
+                  tipe_agent: Agent Property
+                  kantor_agent: 3
+                  principal_id: 55
+                  nama_depan: Lim
+                  nama_belakang: Lie Kian
+                  no_ktp: '3674014108660004'
+                  jenis_kelamin: Perempuan
+                  tempat_lahir: Jakarta
+                  tanggal_lahir: '1966-08-01'
+                  alamat: BSD Sektor XIV-6 Blok QB/01 RT/RW 010/008 Kel. Rawa Mekar Jaya, Kec. Serpong, Kota Tangerang Selatan
+                  provinsi: BANTEN
+                  kota: KOTA TANGERANG SELATAN
+                  kecamatan: SERPONG
+                  kelurahan: null
+                  rt: '010'
+                  rw: '008'
+                  no_rekening: '8990408158'
+                  nama_rekening: Lim Lie Kian
+                  bank: BANK CENTRAL ASIA (BCA)
+                  no_npwp: 82.573.240.7-411.000
+                  note: null
+                  foto_ktp: Lim Lie Kian-65f91407729a5.png
+                  foto_npwp: Lim Lie Kian-65f91407737f4.png
+                  foto_selfie: Lim Lie Kian-65f914077391a.png
+                  status_sales: Sudah Diverifikasi
+                  approved_date: '2024-03-20T03:13:24.000000Z'
+                  ratings: 5
+                  status_aktif: Aktif
+                  kode_referral: YIZG2I
+                  kode_referral_agent: null
+                  created_at: '2024-03-19T04:26:47.000000Z'
+                  updated_at: '2024-03-20T03:13:24.000000Z'
+                  nama_kontak_darurat: null
+                  no_kontak_darurat: null
+                  hubungan_keluarga: null
+                  komisi_sales: 70
+                  komisi_kantor: 30
+                  user:
+                    id: 79
+                    slug: lim-lie-kian-62089659902718
+                    nama: Lim Lie Kian
+                    email: kian@serpong.stellarproperty.id
+                    telepon: '+6289659902718'
+                    email_verified_at: null
+                    created_at: '2024-03-19T04:26:47.000000Z'
+                    updated_at: '2024-03-20T03:13:24.000000Z'
+                    grup_user_id: 2
+                    is_sales: true
+                    is_customer: false
+                    is_inhouse: false
+                    is_stellar_admin: false
+                    stellar_admin_number: null
+                    kode_otp: null
+                    device_token: null
           headers:
             Date:
               type: string
-              default: Wed, 03 Apr 2024 04:16:13 GMT
+              default: Wed, 03 Apr 2024 04:17:37 GMT
             Transfer-Encoding:
               type: string
               default: chunked
@@ -2341,7 +2644,7 @@ paths:
               default: '60'
             X-RateLimit-Remaining:
               type: string
-              default: '59'
+              default: '58'
             Access-Control-Allow-Origin:
               type: string
               default: '*'
@@ -2353,7 +2656,7 @@ paths:
               default: DYNAMIC
             Report-To:
               type: string
-              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=DQCq1XNoLbkjNkKjCKlA3jR%2F3p2VheHX4WwyP%2Bjp3fB7eNQKu4gHy%2FPloEMJymatBlqF1xBfFuVpCehHmB6r%2F98nhVv3oJlmKautTcOrxSB%2F0PuM1tDKuvPGbzunkAWIrw%3D%3D"}],"group":"cf-nel","max_age":604800}'
+              default: '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v4?s=w%2Bz6mQUbbquSbEmxsgcN58cgjJu61jflm2tOsewEhqw%2FD7QPKqQHg3TnuDlD3UUjy3kHnk4rpwmuLNt58JhojnRRC0ozuGG7Ju%2B0AWMyT1Snhxd48iNcwq%2FTukRAL74xZQ%3D%3D"}],"group":"cf-nel","max_age":604800}'
             NEL:
               type: string
               default: '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
@@ -2362,14 +2665,14 @@ paths:
               default: cloudflare
             CF-RAY:
               type: string
-              default: 86e63df00ee4849d-HKG
+              default: 86e63fffa8c9849d-HKG
             Content-Encoding:
               type: string
               default: br
             alt-svc:
               type: string
               default: h3=":443"; ma=86400
-  /secondary_unit/edit/111:
+  /secondary_unit/edit/327:
     get:
       summary: Edit Secondary Unit
       tags:
@@ -5199,7 +5502,7 @@ paths:
         '200':
           description: OK
           schema:
-            $ref: '#/definitions/KodeVerifikasiSalah'
+            $ref: '#/definitions/Kodeverifikasisalah'
           examples:
             application/json:
               success: false
@@ -8306,6 +8609,39 @@ definitions:
       - url
       - label
       - active
+  Idprospekinvalid:
+    title: Idprospekinvalid
+    example:
+      success: false
+      error:
+        id_prospek:
+          - The selected id prospek is invalid.
+      message: The selected id prospek is invalid.
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        $ref: '#/definitions/Error'
+      message:
+        type: string
+    required:
+      - success
+      - error
+      - message
+  Error:
+    title: Error
+    example:
+      id_prospek:
+        - The selected id prospek is invalid.
+    type: object
+    properties:
+      id_prospek:
+        type: array
+        items:
+          type: string
+    required:
+      - id_prospek
   KlienBerhasilDisimpan:
     title: KlienBerhasilDisimpan
     example:
@@ -8402,47 +8738,14 @@ definitions:
       - updated_at
       - created_at
       - id
-  TambahKlienBaru:
-    title: TambahKlienBaru
+  Klienfieldrequired:
+    title: Klienfieldrequired
     example:
       success: false
       error:
         nama_klien:
           - The nama klien field is required.
       message: The nama klien field is required.
-    type: object
-    properties:
-      success:
-        type: boolean
-      error:
-        $ref: '#/definitions/Error'
-      message:
-        type: string
-    required:
-      - success
-      - error
-      - message
-  Error:
-    title: Error
-    example:
-      nama_klien:
-        - The nama klien field is required.
-    type: object
-    properties:
-      nama_klien:
-        type: array
-        items:
-          type: string
-    required:
-      - nama_klien
-  TambahKlienBaru1:
-    title: TambahKlienBaru1
-    example:
-      success: false
-      error:
-        email:
-          - The email field is required.
-      message: The email field is required.
     type: object
     properties:
       success:
@@ -8458,36 +8761,18 @@ definitions:
   Error1:
     title: Error1
     example:
-      email:
-        - The email field is required.
+      nama_klien:
+        - The nama klien field is required.
     type: object
     properties:
-      email:
+      nama_klien:
         type: array
         items:
           type: string
     required:
-      - email
-  VerifikasiKlienOTP:
-    title: VerifikasiKlienOTP
-    example:
-      success: false
-      error: InvalidOTPException
-      message: No query results for model [Modules\Transaksi\Entities\Klien].
-    type: object
-    properties:
-      success:
-        type: boolean
-      error:
-        type: string
-      message:
-        type: string
-    required:
-      - success
-      - error
-      - message
-  KodeVerifikasiberhasilDiterima:
-    title: KodeVerifikasiberhasilDiterima
+      - nama_klien
+  Kodeverifikasiberhasilditerima:
+    title: Kodeverifikasiberhasilditerima
     example:
       success: true
       error: null
@@ -8504,13 +8789,31 @@ definitions:
       - success
       - error
       - message
-  KodeVerifikasiberhasilDikirim:
-    title: KodeVerifikasiberhasilDikirim
+  Kodeverifikasisalah:
+    title: Kodeverifikasisalah
+    example:
+      success: false
+      error: InvalidOTPException
+      message: Kode verifikasi Anda salah.
+    type: object
+    properties:
+      success:
+        type: boolean
+      error:
+        type: string
+      message:
+        type: string
+    required:
+      - success
+      - error
+      - message
+  Kodeverifikasiberhasildikirim:
+    title: Kodeverifikasiberhasildikirim
     example:
       success: true
       error: null
       message: Kode verifikasi berhasil dikirim.
-      data: 3460
+      data: 1727
     type: object
     properties:
       success:
@@ -8527,8 +8830,8 @@ definitions:
       - error
       - message
       - data
-  DataRetrieved:
-    title: DataRetrieved
+  Dataretrieved:
+    title: Dataretrieved
     example:
       success: true
       error: null
@@ -8536,34 +8839,90 @@ definitions:
       data:
         current_page: 1
         data:
-          - slug: client-adi-2
+          - slug: client-adi-8
             nama_klien: Client Adi
-            sales_id: '34'
+            sales_id: '51'
             sales_type: Sales Agent
-            telepone: +
+            telepone: '+628788551152'
             email: adi200@gmail.com
             catatan: null
             nama_bank: BCA
             nomor_rekening: '3221102928'
-            created_at: '2024-04-03T03:26:12.000000Z'
-            updated_at: '2024-04-03T03:26:12.000000Z'
-            id: 45
+            created_at: '2024-04-18T04:24:37.000000Z'
+            updated_at: '2024-04-18T04:24:37.000000Z'
+            id: 51
             is_verified: 0
-            kode_otp: '3737'
-          - slug: client-adi
+            kode_otp: '6234'
+          - slug: client-adi-7
             nama_klien: Client Adi
-            sales_id: '34'
+            sales_id: '51'
+            sales_type: Sales Agent
+            telepone: '+628788551152'
+            email: adi20@gmail.com
+            catatan: null
+            nama_bank: BCA
+            nomor_rekening: '3221102928'
+            created_at: '2024-04-18T04:24:24.000000Z'
+            updated_at: '2024-04-18T04:24:24.000000Z'
+            id: 50
+            is_verified: 0
+            kode_otp: '6388'
+          - slug: client-adi-6
+            nama_klien: Client Adi
+            sales_id: '51'
+            sales_type: Sales Agent
+            telepone: '+628788551152'
+            email: adi200@gmail.com
+            catatan: null
+            nama_bank: BCA
+            nomor_rekening: '3221102928'
+            created_at: '2024-04-18T04:24:15.000000Z'
+            updated_at: '2024-04-18T04:24:15.000000Z'
+            id: 49
+            is_verified: 0
+            kode_otp: '4058'
+          - slug: client-adi-5
+            nama_klien: Client Adi
+            sales_id: '51'
+            sales_type: Sales Agent
+            telepone: '+6287885511'
+            email: adi200@gmail.com
+            catatan: null
+            nama_bank: BCA
+            nomor_rekening: '3221102928'
+            created_at: '2024-04-18T04:24:05.000000Z'
+            updated_at: '2024-04-18T04:24:05.000000Z'
+            id: 48
+            is_verified: 0
+            kode_otp: '5194'
+          - slug: client-adi-4
+            nama_klien: Client Adi
+            sales_id: '51'
+            sales_type: Sales Agent
+            telepone: '+628788551152'
+            email: adi200@gmail.com
+            catatan: null
+            nama_bank: BCA
+            nomor_rekening: '3221102928'
+            created_at: '2024-04-18T04:23:55.000000Z'
+            updated_at: '2024-04-18T04:23:55.000000Z'
+            id: 47
+            is_verified: 0
+            kode_otp: '6235'
+          - slug: client-adi-3
+            nama_klien: Client Adi
+            sales_id: '51'
             sales_type: Sales Agent
             telepone: '+62878855115252'
             email: adi200@gmail.com
             catatan: null
             nama_bank: BCA
             nomor_rekening: '3221102928'
-            created_at: '2024-04-03T03:25:06.000000Z'
-            updated_at: '2024-04-03T03:47:55.000000Z'
-            id: 44
+            created_at: '2024-04-18T03:20:47.000000Z'
+            updated_at: '2024-04-18T03:20:47.000000Z'
+            id: 46
             is_verified: 0
-            kode_otp: '3460'
+            kode_otp: '3327'
         first_page_url: https://stellarhome.id/api/v1/mobile/klien?page=1
         from: 1
         last_page: 1
@@ -8582,8 +8941,8 @@ definitions:
         path: https://stellarhome.id/api/v1/mobile/klien
         per_page: 15
         prev_page_url: null
-        to: 2
-        total: 2
+        to: 6
+        total: 6
     type: object
     properties:
       success:
@@ -8604,34 +8963,90 @@ definitions:
     example:
       current_page: 1
       data:
-        - slug: client-adi-2
+        - slug: client-adi-8
           nama_klien: Client Adi
-          sales_id: '34'
+          sales_id: '51'
           sales_type: Sales Agent
-          telepone: +
+          telepone: '+628788551152'
           email: adi200@gmail.com
           catatan: null
           nama_bank: BCA
           nomor_rekening: '3221102928'
-          created_at: '2024-04-03T03:26:12.000000Z'
-          updated_at: '2024-04-03T03:26:12.000000Z'
-          id: 45
+          created_at: '2024-04-18T04:24:37.000000Z'
+          updated_at: '2024-04-18T04:24:37.000000Z'
+          id: 51
           is_verified: 0
-          kode_otp: '3737'
-        - slug: client-adi
+          kode_otp: '6234'
+        - slug: client-adi-7
           nama_klien: Client Adi
-          sales_id: '34'
+          sales_id: '51'
+          sales_type: Sales Agent
+          telepone: '+628788551152'
+          email: adi20@gmail.com
+          catatan: null
+          nama_bank: BCA
+          nomor_rekening: '3221102928'
+          created_at: '2024-04-18T04:24:24.000000Z'
+          updated_at: '2024-04-18T04:24:24.000000Z'
+          id: 50
+          is_verified: 0
+          kode_otp: '6388'
+        - slug: client-adi-6
+          nama_klien: Client Adi
+          sales_id: '51'
+          sales_type: Sales Agent
+          telepone: '+628788551152'
+          email: adi200@gmail.com
+          catatan: null
+          nama_bank: BCA
+          nomor_rekening: '3221102928'
+          created_at: '2024-04-18T04:24:15.000000Z'
+          updated_at: '2024-04-18T04:24:15.000000Z'
+          id: 49
+          is_verified: 0
+          kode_otp: '4058'
+        - slug: client-adi-5
+          nama_klien: Client Adi
+          sales_id: '51'
+          sales_type: Sales Agent
+          telepone: '+6287885511'
+          email: adi200@gmail.com
+          catatan: null
+          nama_bank: BCA
+          nomor_rekening: '3221102928'
+          created_at: '2024-04-18T04:24:05.000000Z'
+          updated_at: '2024-04-18T04:24:05.000000Z'
+          id: 48
+          is_verified: 0
+          kode_otp: '5194'
+        - slug: client-adi-4
+          nama_klien: Client Adi
+          sales_id: '51'
+          sales_type: Sales Agent
+          telepone: '+628788551152'
+          email: adi200@gmail.com
+          catatan: null
+          nama_bank: BCA
+          nomor_rekening: '3221102928'
+          created_at: '2024-04-18T04:23:55.000000Z'
+          updated_at: '2024-04-18T04:23:55.000000Z'
+          id: 47
+          is_verified: 0
+          kode_otp: '6235'
+        - slug: client-adi-3
+          nama_klien: Client Adi
+          sales_id: '51'
           sales_type: Sales Agent
           telepone: '+62878855115252'
           email: adi200@gmail.com
           catatan: null
           nama_bank: BCA
           nomor_rekening: '3221102928'
-          created_at: '2024-04-03T03:25:06.000000Z'
-          updated_at: '2024-04-03T03:47:55.000000Z'
-          id: 44
+          created_at: '2024-04-18T03:20:47.000000Z'
+          updated_at: '2024-04-18T03:20:47.000000Z'
+          id: 46
           is_verified: 0
-          kode_otp: '3460'
+          kode_otp: '3327'
       first_page_url: https://stellarhome.id/api/v1/mobile/klien?page=1
       from: 1
       last_page: 1
@@ -8650,8 +9065,8 @@ definitions:
       path: https://stellarhome.id/api/v1/mobile/klien
       per_page: 15
       prev_page_url: null
-      to: 2
-      total: 2
+      to: 6
+      total: 6
     type: object
     properties:
       current_page:
@@ -8707,20 +9122,20 @@ definitions:
   Data4:
     title: Data4
     example:
-      slug: client-adi-2
+      slug: client-adi-8
       nama_klien: Client Adi
-      sales_id: '34'
+      sales_id: '51'
       sales_type: Sales Agent
-      telepone: +
+      telepone: '+628788551152'
       email: adi200@gmail.com
       catatan: null
       nama_bank: BCA
       nomor_rekening: '3221102928'
-      created_at: '2024-04-03T03:26:12.000000Z'
-      updated_at: '2024-04-03T03:26:12.000000Z'
-      id: 45
+      created_at: '2024-04-18T04:24:37.000000Z'
+      updated_at: '2024-04-18T04:24:37.000000Z'
+      id: 51
       is_verified: 0
-      kode_otp: '3737'
+      kode_otp: '6234'
     type: object
     properties:
       slug:
@@ -13038,24 +13453,6 @@ definitions:
       - nama_sales
       - luas_tanah
       - luas_bangunan
-  SecondaryUnitDetail:
-    title: SecondaryUnitDetail
-    example:
-      success: false
-      error: Get data failed.
-      message: No data exist
-    type: object
-    properties:
-      success:
-        type: boolean
-      error:
-        type: string
-      message:
-        type: string
-    required:
-      - success
-      - error
-      - message
   DataRetrieved5:
     title: DataRetrieved5
     example:
@@ -15995,24 +16392,6 @@ definitions:
       success: false
       error: Method Modules\ManageUser\Http\Controllers\Api\Mobile\RegisterController::generateOTPCode does not exist. on file /home/stellarhomeid/public_html/vendor/laravel/framework/src/Illuminate/Routing/Controller.php on line number 68
       message: Terdapat kesalahan saat menyimpan data, silahkan dicoba kembali beberapa saat lagi.
-    type: object
-    properties:
-      success:
-        type: boolean
-      error:
-        type: string
-      message:
-        type: string
-    required:
-      - success
-      - error
-      - message
-  KodeVerifikasiSalah:
-    title: KodeVerifikasiSalah
-    example:
-      success: false
-      error: InvalidOTPException
-      message: Kode verifikasi Anda salah.
     type: object
     properties:
       success:
